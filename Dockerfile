@@ -17,7 +17,7 @@
 #     debops run common --diff
 
 
-FROM debian:bullseye-slim AS builder
+FROM debian:stable-slim AS builder
 
 LABEL maintainer="Maciej Delmanowski <drybjed@gmail.com>" \
       project="DebOps" homepage="https://debops.org/"
