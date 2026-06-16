@@ -77,7 +77,7 @@ RUN apt-get -q update \
 COPY --from=builder /root/src/debops/dist /root/src/debops/dist
 COPY --from=builder /usr/local/bin/docker-entrypoint /usr/local/bin/docker-entrypoint
 
-RUN pip3 install /root/src/debops/dist/debops-*.whl \
+RUN pip3 install --break-system-packages /root/src/debops/dist/debops-*.whl \
     && chmod +x /usr/local/bin/docker-entrypoint \
     && rm -rf /root/src /root/.cache/*
 
