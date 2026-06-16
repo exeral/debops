@@ -17,7 +17,7 @@
 #     debops run common --diff
 
 
-FROM debian:stable-slim AS builder
+FROM debian:trixie-slim AS builder
 
 LABEL maintainer="Maciej Delmanowski <drybjed@gmail.com>" \
       project="DebOps" homepage="https://debops.org/"
@@ -41,7 +41,7 @@ WORKDIR /root/src/debops
 RUN make man wheel-quiet \
     && cp lib/docker/docker-entrypoint /usr/local/bin/
 
-FROM debian:stable-slim
+FROM debian:trixie-slim
 
 LABEL maintainer="Maciej Delmanowski <drybjed@gmail.com>" \
       project="DebOps" homepage="https://debops.org/"
@@ -57,7 +57,6 @@ RUN apt-get -q update \
        python3-cryptography \
        python3-distro \
        python3-dnspython \
-       python3-future \
        python3-ldap \
        python3-netaddr \
        python3-pip \
@@ -71,7 +70,7 @@ RUN apt-get -q update \
        make \
        git \
        man-db \
-    && pip3 install ansible \
+       ansible \
     && echo "Cleaning up cache directories..." \
     && rm -rf /var/lib/apt/lists/* /var/cache/apt/archives/*.deb /root/.cache/*
 
