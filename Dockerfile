@@ -41,7 +41,7 @@ WORKDIR /root/src/debops
 RUN make man wheel-quiet \
     && cp lib/docker/docker-entrypoint /usr/local/bin/
 
-FROM debian:bullseye-slim
+FROM debian:stable-slim
 
 LABEL maintainer="Maciej Delmanowski <drybjed@gmail.com>" \
       project="DebOps" homepage="https://debops.org/"
