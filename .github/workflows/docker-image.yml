@@ -29,4 +29,4 @@ jobs:
         push: true
         pull: true
         # This names the image after your GitHub username and repository
-        tags: ghcr.io/${{ github.repository }}:latest
+        tags: ghcr.io/${{ github.repository }}:forky

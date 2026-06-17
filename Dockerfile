@@ -17,7 +17,7 @@
 #     debops run common --diff
 
 
-FROM debian:trixie-slim AS builder
+FROM debian:forky-slim AS builder
 
 LABEL maintainer="Maciej Delmanowski <drybjed@gmail.com>" \
       project="DebOps" homepage="https://debops.org/"
@@ -41,7 +41,7 @@ WORKDIR /root/src/debops
 RUN make man wheel-quiet \
     && cp lib/docker/docker-entrypoint /usr/local/bin/
 
-FROM debian:trixie-slim
+FROM debian:forky-slim
 
 LABEL maintainer="Maciej Delmanowski <drybjed@gmail.com>" \
       project="DebOps" homepage="https://debops.org/"
